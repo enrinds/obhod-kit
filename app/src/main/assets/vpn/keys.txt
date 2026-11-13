@@ -1,0 +1,10 @@
+# Ключи, вшитые в APK.
+# Всё, что здесь лежит без #, попадёт в приложение и будет использоваться по умолчанию.
+# Вшитые ключи видны любому, кто скачает APK.
+
+# Эстония — VLESS + Reality + TCP + Vision. Официальное ядро sing-box это умеет.
+vless://7d718630-7a1a-4af8-9332-aa0610634e8a@132.243.67.197:443?encryption=none&security=reality&sni=aava.lalibobi.online&fp=firefox&pbk=zBkBjgJwJc5jTXF-ChCv5wgIRK5vigPkw2H_O_tuxEc&sid=1435dbe94a6bbc0f&type=tcp&flow=xtls-rprx-vision#Эстония 4
+
+# Нидерланды — VLESS + Reality + XHTTP. Ядро sing-box XHTTP НЕ поддерживает,
+# такой ключ подключается только в Xray-клиентах: Happ, v2RayTun, NekoBox, v2rayNG, v2rayN.
+# vless://549766c3-fa5f-471e-8031-ffc1f8d5064f@93.183.127.54:2087?encryption=none&security=reality&sni=harbor.blog-forme.ru&fp=firefox&pbk=mbi4BZAuiq_L6pfhG2xxWmtosq0Z1Pzf18fvNSWKMxY&sid=3258252d44113e23&type=xhttp&host=harbor.blog-forme.ru&path=%2Fv2%2Fsync%2F6e9367#Нидерланды 6

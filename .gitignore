@@ -83,3 +83,11 @@ fastlane/test_output/
 # Flowseal tg-ws-proxy (Python) — не вендорим; только Kotlin в app/.../ewenloy/tgws/
 # Если склонировали рядом для сравнения — не копировать внутрь этого репо.
 tg-ws-proxy/
+
+# sing-box core (скачивается tools/fetch-singbox.sh)
+app/src/main/singboxlibs/
+
+# собранные APK/бандлы не храним в репозитории
+*.apk
+*.aab
+app/release.keystore

@@ -50,6 +50,9 @@ jobs:
           printf '%s' "$KEYSTORE_BASE64" | base64 -d > app/release.keystore
           test -s app/release.keystore && echo "Signing keystore restored from secrets"
 
+      - name: Fetch sing-box core (native libs for VPN)
+        run: bash tools/fetch-singbox.sh
+
       - name: Build release APKs
         env:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
@@ -58,6 +61,11 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew assembleRelease --stacktrace
+
+      - name: Build debug APKs (installable without keystore)
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug --stacktrace
 
       - name: Determine release tag
         id: tag
@@ -84,6 +92,8 @@ jobs:
         with:
           tag_name: ${{ steps.tag.outputs.tag }}
           prerelease: ${{ steps.tag.outputs.prerelease == 'true' }}
-          files: app/build/outputs/apk/release/*.apk
-          fail_on_unmatched_files: true
+          files: |
+            app/build/outputs/apk/release/*.apk
+            app/build/outputs/apk/debug/*.apk
+          fail_on_unmatched_files: false
           generate_release_notes: true

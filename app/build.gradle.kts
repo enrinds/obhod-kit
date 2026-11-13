@@ -116,7 +116,7 @@ android {
             // tglibs — prebuilt libtgwsproxy.so (Rust MTProto WS ядро).
             // Отдельная папка обязательна: runNdkBuild пишет в NDK_LIBS_OUT=src/main/jniLibs
             // и очищает её при каждой сборке, удаляя чужие .so.
-            jniLibs.srcDirs("src/main/jniLibs", "src/main/tglibs")
+            jniLibs.srcDirs("src/main/jniLibs", "src/main/tglibs", "src/main/singboxlibs")
         }
     }
 
@@ -124,6 +124,12 @@ android {
         cmake {
             path = file("src/main/cpp/CMakeLists.txt")
             version = "3.22.1"
+        }
+    }
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
         }
     }
 
