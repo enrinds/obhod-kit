@@ -67,10 +67,8 @@
 | ByeByeDPI | [romanvht](https://github.com/romanvht/ByeByeDPI) | GPL-3.0 |
 | ByeByeDPI × TG | [EwenLoy](https://github.com/EwenLoy/ByeByeDPI-x-tg) | GPL-3.0 |
 
-Исходный код оболочки — форк ByeByeDPI × TG. Полные тексты лицензий — в [`licenses/`](licenses)
-и [`third-party/`](third-party), подробности — в [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
-и [NOTICE](NOTICE).
-
+Исходный код оболочки — форк ByeByeDPI × TG. Полные тексты лицензий — в [`licenses/`](licenses),
+уведомления о копирайтах — в [NOTICE](NOTICE). Что именно взято и на каком коммите — в конце.
 Спасибо авторам этих проектов, а также ИИшке за помощь в написании этого README.
 Если приложение помогло — поставь звёздочки авторам и мне.
 
@@ -122,6 +120,28 @@ bash tools/fetch-singbox.sh   # скачает ядро sing-box под 4 ABI
 **GPL-3.0** — это требование лицензий компонентов, на которых построен проект. Публикуя APK,
 исходники публикуются вместе с ним (этот репозиторий). Названия sing-box, SagerNet и ByeByeDPI
 принадлежат их авторам и в названии этого проекта не используются.
+
+
+## Для дотошных (счастья вам и здоровья): что именно взято
+
+Не просто «использует библиотеки», а конкретно:
+
+| Компонент | Что взято | Коммит |
+|---|---|---|
+| byedpi | ядро `libbyedpi.so`, обход DPI | `ba53229` |
+| hev-socks5-tunnel | ядро `libhev-socks5-tunnel.so`, TUN → SOCKS5 | `4d6c334` |
+| hev-socks5-core, hev-task-system, lwip, yaml | вложены внутрь hev-socks5-tunnel | `4be2e62`, `8d83bbb`, `07dbf16`, `efa3611` |
+| tg-ws-proxy / tg-ws-proxy-android | Rust-ядро `libtgwsproxy.so` и логика MTProto-over-WebSocket | — |
+| sing-box | ядро VPN, качается при сборке | — |
+| ByeByeDPI × TG | оболочка на Kotlin | — |
+
+Лицензии этих компонентов требуют двух вещей: сохранить их тексты (папка
+[`licenses/`](licenses)) и строки копирайта ([NOTICE](NOTICE)). И то и другое лежит
+в репозитории, значит условия выполнены.
+
+Отдельная строка в лицензии sing-box запрещает называть сборку «sing-box» и намекать
+на связь с SagerNet — поэтому приложение называется obhod-kit. Чужих названий и логотипов
+в нём нет: торговые марки лицензией не покрываются и принадлежат авторам.
 
 ## Дисклеймер
 
