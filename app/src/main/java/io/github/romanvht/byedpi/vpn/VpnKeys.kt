@@ -200,7 +200,7 @@ object VpnKeys {
                 .put("type", "socks")
                 .put("tag", "in")
                 .put("listen", SingBoxRunner.SOCKS_HOST)
-                .put("listen_port", SOCKS_PORT)
+                .put("listen_port", SingBoxRunner.SOCKS_PORT)
         )
 
         val outbounds = JSONArray()
