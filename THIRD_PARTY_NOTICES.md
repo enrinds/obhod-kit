@@ -92,6 +92,23 @@
 работает даже из обычного zip-архива. Лицензии обоих движков — MIT, тексты лежат в
 `licenses/` и в самих папках.
 
+
+## Вложенные сабмодули hev-socks5-tunnel
+
+У `hev-socks5-tunnel` есть собственные сабмодули. Без них NDK-сборка падает с ошибкой
+`Module hev-socks5-tunnel depends on undefined modules: yaml lwip hev-task-system`.
+Поэтому они тоже вложены в репозиторий (каталог `app/src/main/jni/hev-socks5-tunnel/`):
+
+| Компонент | Путь | Коммит | Лицензия |
+|---|---|---|---|
+| hev-socks5-core | `src/core/` | `4be2e62` | MIT |
+| hev-task-system | `third-part/hev-task-system/` | `8d83bbb` | MIT |
+| lwip | `third-part/lwip/` | `07dbf16` | BSD-3-Clause |
+| yaml | `third-part/yaml/` | `efa3611` | MIT |
+
+Тексты лицензий — в `licenses/`. Проверено локально: `ndk-build` с NDK r27b собирает
+`libhev-socks5-tunnel.so` под 4 ABI без ошибок.
+
 ## Как обновлять сторонние компоненты
 
 1. `byedpi` — обновить сабмодуль/исходники в форке и заголовки в `licenses/byedpi-MIT.txt` (год
